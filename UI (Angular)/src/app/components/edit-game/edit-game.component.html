@@ -1,0 +1,33 @@
+<div *ngIf="game">
+  <h2>{{ game.gameName }}</h2>
+  <div class="parameter">
+    Game:
+    <input [(ngModel)]="game.gameName" placeholder="Game" />
+  </div>
+  <div class="parameter">
+    Completed:
+    <input [(ngModel)]="game.completed" placeholder="Completed" />
+  </div>
+  <div class="parameter">
+    Steam:
+    <input [(ngModel)]="game.steam" placeholder="Steam" />
+  </div>
+  <div class="parameter">
+    Last Played:
+    <input [(ngModel)]="game.lastPlayed" placeholder="Last Played" />
+  </div>
+  <div class="parameter">
+    Play Time:
+    <input [(ngModel)]="game.playTime" placeholder="Play Time" />
+  </div>
+  <div class="parameter">
+    Achievements:
+    <input [(ngModel)]="game.achievements" placeholder="Achievements" />
+  </div>
+
+  <div class="btns">
+    <button (click)="updateGame(game)" *ngIf="game.id">Save</button>
+    <button (click)="deleteGame(game)" *ngIf="game.id">Delete</button>
+    <button (click)="createGame(game)" *ngIf="!game.id">Create</button>
+  </div>
+</div>

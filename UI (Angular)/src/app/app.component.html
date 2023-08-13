@@ -1,0 +1,40 @@
+<section>
+<span>
+  Your Personal
+  <br/>
+  <h1>Gaming Progress</h1>
+</span>
+
+
+<button (click)="initNewGame()">Add New Game</button>
+
+  <div class="table_wrapper">
+<table>
+  <thead>
+  <th>Game</th>
+  <th>Completed</th>
+  <th>Steam</th>
+  <th>Last Played</th>
+  <th>Play Time</th>
+  <th>Achievements</th>
+  <th>Edit</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let game of games">
+    <td>{{game.gameName}}</td>
+    <td>{{game.completed}}</td>
+    <td>{{game.steam}}</td>
+    <td>{{game.lastPlayed}}</td>
+    <td>{{game.playTime}}</td>
+    <td>{{game.achievements}}</td>
+    <td><button (click)="editGame(game)">Edit</button></td>
+  </tr>
+  </tbody>
+</table>
+  </div>
+
+<app-edit-game
+  [game]="gameToEdit"
+  (gamesUpdated)="updateGameList($event)"
+></app-edit-game>
+</section>
